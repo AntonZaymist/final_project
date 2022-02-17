@@ -1,8 +1,6 @@
 from page_object.main_page import MainPage
 
 
-def test_login(chrome_driver):
-    page = MainPage(chrome_driver)
-    page.open()
-    login_page = page.open_admin_page()
+def test_login(main_page):
+    login_page = main_page.open_login_page()
     login_page.try_to_login()
