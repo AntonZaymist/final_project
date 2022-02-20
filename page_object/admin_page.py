@@ -14,13 +14,17 @@ class AdminPage(BasePage):
         groups_button.clcik()
         return self.find_element(AdminPageLocators.TEXT_ADD_GROUP_1)
 
-    def admin_login(self):
-        username = self.find_element(LoginPageLocators.USERNAME_INPUT_LOCATORS)
-        username.send_keys(ADMIN_LOGIN)
-        password = self.find_element(LoginPageLocators.PASSWORD_INPUT_LOCATORS)
-        password.send_keys(ADMIN_PASSWORD)
-        button = self.find_element(LoginPageLocators.LOG_IN_BUTTON)
-        button.click()
+    # def admin_login(self):
+    #     username = self.find_element(LoginPageLocators.USERNAME_INPUT_LOCATORS)
+    #     username.send_keys(ADMIN_LOGIN)
+    #     password = self.find_element(LoginPageLocators.PASSWORD_INPUT_LOCATORS)
+    #     password.send_keys(ADMIN_PASSWORD)
+    #     button = self.find_element(LoginPageLocators.LOG_IN_BUTTON)
+    #     button.click()
 
+    def open_first_group(self):
+        first_group = self.find_element(AdminPageLocators.TEXT_ADD_GROUP_1)
+        first_group.click()
+        return GroupPage(self.chrome_driver, self.chrome_driver.current_url)
 
 
