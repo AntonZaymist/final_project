@@ -11,7 +11,6 @@ def chrome_driver():
     chrome_driver.quit()
 
 
-@pytest.fixture(scope="module")
 def main_page(chrome_driver):
     page = MainPage(chrome_driver)
     page.open()
@@ -20,11 +19,12 @@ def main_page(chrome_driver):
 
 @pytest.fixture(scope='session')
 def postgres_connections():
-    db = psycopg2.connect(
+    connection = psycopg2.connect(
         dbname='postgres',
         user='postgres',
         password='postgres',
         host='localhost'
     )
-    yield db
-    db.close()
+    dbs = connection.cursor()
+    yield dbs
+    connection.close()
