@@ -30,7 +30,7 @@ def test_add_group(chrome_driver, db):
     assert admin_page.open_groups.text == 'test_group'
 
 
-def test_change_group(chrome_driver):
+def test_change_group(chrome_driver, db):
     page = MainPage(chrome_driver)
     page.open()
     admin_page = page.open_admin_page()
@@ -38,6 +38,6 @@ def test_change_group(chrome_driver):
     group = admin_page.open_first_group()
     change_group = group.change_group_name()
     get_group_name(db)
-    assert admin_page.open_groups.text == 'new_name'
+    assert admin_page.open_groups.text == 'test_group2'
 
 

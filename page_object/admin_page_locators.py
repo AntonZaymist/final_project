@@ -7,3 +7,5 @@ class AdminPageLocators:
     GROUPS_BUTTON = (By.XPATH, "//*[@href='/admin/auth/group/']")
     USERS_BUTTON = (By.XPATH, "//*[@href='/admin/auth/user/']")
     TEXT_ADD_GROUP_1 = (By.XPATH, "//*[@href='/admin/auth/group/1/change/']")
+    NAME_GROUP_FIELD = (By.XPATH, "//*[@id='id_name']")
+    SAVE_BUTTON = (By.XPATH, "//*[@value='Save']")

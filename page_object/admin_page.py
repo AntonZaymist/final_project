@@ -25,6 +25,14 @@ class AdminPage(BasePage):
     def open_first_group(self):
         first_group = self.find_element(AdminPageLocators.TEXT_ADD_GROUP_1)
         first_group.click()
-        return GroupPage(self.chrome_driver, self.chrome_driver.current_url)
+        return AdminPage(self.chrome_driver, self.chrome_driver.current_url)
+
+    def change_group_name(self):
+        group_name = self.find_element(AdminPageLocators.NAME_GROUP_FIELD)
+        group_name.clear()
+        group_name.send_keys('new_name')
+        save_button = self.find_element(AdminPageLocators.SAVE_BUTTON)
+        save_button.click()
+        return AdminPage(self.chrome_driver, self.chrome_driver.current_url)
 
 
